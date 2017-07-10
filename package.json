@@ -4,7 +4,10 @@
   "description": "Client for the RequestBin service",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "compile": "./node_modules/.bin/babel -d build/ src/",
+    "prepublish": "npm run compile",
+    "lint": "eslint src",
+    "test": "npm run compile && mocha --recursive --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
