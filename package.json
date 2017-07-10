@@ -1,0 +1,41 @@
+{
+  "name": "request-bin",
+  "version": "1.0.0",
+  "description": "Client for the RequestBin service",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaebradley/request-bin.git"
+  },
+  "keywords": [
+    "RequestBin"
+  ],
+  "author": "jae.b.bradley@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaebradley/request-bin/issues"
+  },
+  "homepage": "https://github.com/jaebradley/request-bin#readme",
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.0.2",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "install": "^0.10.1",
+    "mocha": "^3.4.2",
+    "npm": "^5.1.0",
+    "sinon": "^2.3.7",
+    "sinon-chai": "^2.11.0"
+  }
+}
