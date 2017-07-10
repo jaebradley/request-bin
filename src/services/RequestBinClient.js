@@ -1,36 +1,25 @@
 import rp from 'request-promise-native';
 
+import RequestBinUriBuilder from './RequestBinUriBuilder';
+import RequestBinHttpError from '../errors/RequestBinHttpError';
+
 export default class RequestBinClient {
   static createBin() {
-    const uri = `${RequestBinClient.getHost()}/bins`;
-    return RequestBinClient.executeHttpRequest(uri);
+    return RequestBinClient.executeHttpRequest(RequestBinUriBuilder.getCreateBinUri());
   }
 
   static getBin(binId) {
-    const uri = `${RequestBinClient.getHost()}/bins/${binId}`;
-    return RequestBinClient.executeHttpRequest(uri);
+    return RequestBinClient.executeHttpRequest(RequestBinUriBuilder.getBinUri(binId));
   }
 
   static getRequests(binId) {
-    const uri = `${RequestBinClient.getHost()}/bins/${binId}/requests`;
+    const uri = RequestBinUriBuilder.getBinRequestsUri(binId);
     return RequestBinClient.executeHttpRequest(uri);
   }
 
   static getRequest(binId, requestId) {
-    const uri = `${RequestBinClient.getHost()}/bins/${binId}/requests/${requestId}`;
+    const uri = RequestBinUriBuilder.getBinRequestUri(binId, requestId);
     return RequestBinClient.executeHttpRequest(uri);
-  }
-
-  static getCreateEndpoint() {
-    return `${RequestBinClient.getHost()}/bins`;
-  }
-
-  static getRequestsEndpoint() {
-    return `${RequestBinClient.getHost()}/bins/`;
-  }
-
-  static getHost() {
-    return 'https://requestb.in/api/v1';
   }
 
   static buildApiRequestDetails(uri) {
@@ -46,6 +35,12 @@ export default class RequestBinClient {
   static executeHttpRequest(uri) {
     return rp(RequestBinClient.buildApiRequestDetails(uri))
       .then(data => data)
-      .catch(err => Promise.reject(err));
+      .catch((err) => {
+        Promise.reject(new RequestBinHttpError(
+          `Error when querying: ${uri}`,
+          err.statusCode,
+          err.error,
+        ));
+      });
   }
 }
