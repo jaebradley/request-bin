@@ -1,0 +1,22 @@
+{
+  "name": "request-bin",
+  "version": "1.0.0",
+  "description": "Client for the RequestBin service",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaebradley/request-bin.git"
+  },
+  "keywords": [
+    "RequestBin"
+  ],
+  "author": "jae.b.bradley@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaebradley/request-bin/issues"
+  },
+  "homepage": "https://github.com/jaebradley/request-bin#readme"
+}
