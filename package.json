@@ -4,7 +4,12 @@
   "description": "Client for the RequestBin service",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "compile": "./node_modules/.bin/babel -d build/ src/",
+    "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha test --  --recursive --compilers js:babel-core/register",
+    "codecov": "npm run compile && npm run coverage && ./node_modules/.bin/codecov",
+    "prepublish": "npm run compile",
+    "lint": "eslint src",
+    "test": "npm run compile && mocha --recursive --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
@@ -29,10 +34,14 @@
     "babel-preset-env": "^1.6.0",
     "chai": "^4.0.2",
     "chai-as-promised": "^7.1.1",
+    "chai-things": "^0.2.0",
+    "codecov": "^2.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-mocha": "^4.11.0",
     "install": "^0.10.1",
+    "istanbul": "1.0.0-alpha.2",
     "mocha": "^3.4.2",
     "npm": "^5.1.0",
     "sinon": "^2.3.7",
