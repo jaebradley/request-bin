@@ -2,6 +2,7 @@
 
 [![codecov](https://codecov.io/gh/jaebradley/request-bin/branch/master/graph/badge.svg)](https://codecov.io/gh/jaebradley/request-bin)
 [![Build Status](https://travis-ci.org/jaebradley/request-bin.svg?branch=master)](https://travis-ci.org/jaebradley/request-bin)
+[![npm version](https://badge.fury.io/js/request-bin.svg)](https://badge.fury.io/js/request-bin)
 
 ### Introduction
 [Request Bin](requestb.in) is a pretty useful service (I've used it to test webhooks, for example) and it's [API](https://github.com/Runscope/requestbin/wiki/API) is relatively straight-forward, to boot!
@@ -9,6 +10,8 @@
 Currently, there's a Request Bin client via the [`requestbin` NPM package](https://github.com/fvdm/nodejs-requestbin), however, it has a callback-based API while this client is `Promise`-based.
 
 ### Installation
+Install via the [NPM package](https://www.npmjs.com/package/request-bin)
+
 `npm install request-bin`
 
 ### API
