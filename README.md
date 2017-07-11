@@ -6,7 +6,7 @@
 ### Introduction
 [Request Bin](requestb.in) is a pretty useful service (I've used it to test webhooks, for example) and it's [API](https://github.com/Runscope/requestbin/wiki/API) is relatively straight-forward, to boot!
 
-Currently, there's a Request Bin client via the []`requestbin` NPM package](https://github.com/fvdm/nodejs-requestbin), however, it has a callback-based API while this client is `Promise`-based.
+Currently, there's a Request Bin client via the [`requestbin` NPM package](https://github.com/fvdm/nodejs-requestbin), however, it has a callback-based API while this client is `Promise`-based.
 
 ### Installation
 `npm install request-bin`
