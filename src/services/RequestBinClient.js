@@ -22,7 +22,7 @@ export default class RequestBinClient {
     return RequestBinClient.executeHttpRequest(uri);
   }
 
-  static buildApiRequestDetails(uri, method, formData) {
+  static getHttpRequestDetails(uri, method, formData) {
     return {
       uri,
       method,
@@ -35,7 +35,7 @@ export default class RequestBinClient {
   }
 
   static executeHttpRequest(uri, method = 'GET', formData = {}) {
-    return rp(RequestBinClient.buildApiRequestDetails(uri, method, formData))
+    return rp(RequestBinClient.getHttpRequestDetails(uri, method, formData))
       .then(data => data)
       .catch(err => Promise.reject(new RequestBinHttpError(
           `Error when making request to ${uri}`,
