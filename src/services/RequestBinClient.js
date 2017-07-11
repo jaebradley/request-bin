@@ -4,8 +4,8 @@ import RequestBinUriBuilder from './RequestBinUriBuilder';
 import RequestBinHttpError from '../errors/RequestBinHttpError';
 
 export default class RequestBinClient {
-  static createBin() {
-    return RequestBinClient.executeHttpRequest(RequestBinUriBuilder.getCreateBinUri());
+  static createBin(isPrivate = false) {
+    return RequestBinClient.executeHttpRequest(RequestBinUriBuilder.getCreateBinUri(), 'POST', { private: isPrivate });
   }
 
   static getBin(binId) {
@@ -22,9 +22,11 @@ export default class RequestBinClient {
     return RequestBinClient.executeHttpRequest(uri);
   }
 
-  static buildApiRequestDetails(uri) {
+  static buildApiRequestDetails(uri, method, formData) {
     return {
       uri,
+      method,
+      form: formData,
       headers: {
         'User-Agent': 'request-bin',
       },
@@ -32,15 +34,13 @@ export default class RequestBinClient {
     };
   }
 
-  static executeHttpRequest(uri) {
-    return rp(RequestBinClient.buildApiRequestDetails(uri))
+  static executeHttpRequest(uri, method = 'GET', formData = {}) {
+    return rp(RequestBinClient.buildApiRequestDetails(uri, method, formData))
       .then(data => data)
-      .catch((err) => {
-        Promise.reject(new RequestBinHttpError(
-          `Error when querying: ${uri}`,
+      .catch(err => Promise.reject(new RequestBinHttpError(
+          `Error when making request to ${uri}`,
           err.statusCode,
           err.error,
-        ));
-      });
+        )));
   }
 }
