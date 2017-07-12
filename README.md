@@ -4,6 +4,8 @@
 [![Build Status](https://travis-ci.org/jaebradley/request-bin.svg?branch=master)](https://travis-ci.org/jaebradley/request-bin)
 [![npm version](https://badge.fury.io/js/request-bin.svg)](https://badge.fury.io/js/request-bin)
 
+[![NPM](https://nodei.co/npm/request-bin.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/request-bin/)
+
 ### Introduction
 [Request Bin](requestb.in) is a pretty useful service (I've used it to test webhooks, for example) and it's [API](https://github.com/Runscope/requestbin/wiki/API) is relatively straight-forward, to boot!
 
